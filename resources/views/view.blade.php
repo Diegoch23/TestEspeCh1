@@ -1,3 +1,12 @@
+<header class="bg-gray-800 py-10">
+    <div class="container mx-auto text-center text-white">
+        <h1 class="text-4xl font-bold">Web of Blog Espe-Latacunga</h1>
+        <p class="mt-2">Universidad de las Fuerzas Armadas Espe Latacunga</p>
+    </div>
+    <div class="text-center" style="margin-top: 5%">
+        <a href="/" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700">Regresar al Inicio</a>
+    </div>
+</header>
 @include('layouts.master')
 <!-- component -->
 <!-- component -->
@@ -18,3 +27,9 @@
     <!-- main ends here -->
 
 </div>
+
+<footer class="bg-gray-800 py-4">
+    <div class="container mx-auto text-center text-white">
+        <p>Creador por: Diego Chancusig y Acurio Kenneth</p>
+    </div>
+</footer>

@@ -91,12 +91,15 @@
                                     </td>
                                     <td class="py-4 px-6">{{ $post->created_at->format('d-m-Y') }}</td>
                                     <td class="py-4 px-6">
+                                        <a href="{{ route('posts.edit', $post->id) }}" class="text-blue-600 hover:text-blue-900">Editar</a>
+                                    </td>
+                                    <td class="py-4 px-6">
                                         <form action="{{ route('posts.destroy', $post->id) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="text-red-600 hover:text-red-900">Eliminar</button>
                                         </form>
-                                    </td>
+                                    </td>                                    
                                 </tr>
                             @endforeach
                         </tbody>

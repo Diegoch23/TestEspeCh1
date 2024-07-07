@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\DB; 
+use Illuminate\Support\Benchmark;
 class PostController extends Controller
 {
     /**
@@ -97,5 +99,16 @@ public function update(Request $request, $id)
         $post->delete();
 
         return redirect()->route('posts.index')->with('success', 'Post eliminado con éxito');
+    }
+
+    public function benchmark()
+    {
+        $results = Benchmark::dd([
+            'Eloquent All' => fn () => Post::all(),
+            'Eloquent Select' => fn () => Post::select('id', 'title', 'body', 'image_url')->get(),
+            'Query Builder' => fn () => DB::table('posts')->select('id', 'title', 'body', 'image_url')->get(),
+        ]);
+
+        return view('posts.benchmark', compact('results'));
     }
 }

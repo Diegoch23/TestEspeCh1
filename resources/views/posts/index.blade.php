@@ -5,12 +5,12 @@
         </h2>
     </x-slot>
 
-    <div class="py-12">
+    <div class="py-12" style="background-image: url('https://image.freepik.com/vetores-gratis/pecas-de-quebra-cabeca-isometrica-no-fundo-roxo_107791-2061.jpg'); background-size: cover;">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+            <div class="bg-white dark:bg-gray-800 bg-opacity-90 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     <!-- Modal toggle -->
-                    <button class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-300" type="button" data-modal-toggle="defaultModal">
+                    <button class="block text-white bg-green-500 hover:bg-green-600 focus:ring-4 focus:outline-none focus:ring-green-300 font-bold rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800" type="button" data-modal-toggle="defaultModal">
                         Nuevo post
                     </button>
 
@@ -26,7 +26,7 @@
                                     </h3>
                                     <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="defaultModal">
                                         <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                            <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 0 0"></path>
+                                            <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 0 0"></path>
                                         </svg>
                                         <span class="sr-only">Close modal</span>
                                     </button>
@@ -43,7 +43,7 @@
                                             <input type="text" name="title" id="title" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
                                         </div>
                                         <div>
-                                            <label for="body" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Body</label>
+                                            <label for="body" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Cuerpo</label>
                                             <textarea id="body" name="body" rows="4" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required></textarea>
                                         </div>
                                         <div>
@@ -64,42 +64,40 @@
                 <!-- Posts Table -->
                 <div class="overflow-x-auto relative shadow-md sm:rounded-lg mt-6">
                     <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 border-b-2 border-gray-300 dark:border-gray-700">
                             <tr>
                                 <th scope="col" class="py-3 px-6">ID</th>
-                                <th scope="col" class="py-3 px-6">Title</th>
-                                <th scope="col" class="py-3 px-6">Body</th>
-                                <th scope="col" class="py-3 px-6">Image</th>
-                                <th scope="col" class="py-3 px-6">Date</th>
-                                <th scope="col" class="py-3 px-6">Delete</th>
+                                <th scope="col" class="py-3 px-6">Título</th>
+                                <th scope="col" class="py-3 px-6">Cuerpo</th>
+                                <th scope="col" class="py-3 px-6">Imagen</th>
+                                <th scope="col" class="py-3 px-6">Fecha</th>
+                                <th scope="col" class="py-3 px-6">Acción</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($posts as $post)
-                                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 transition duration-300">
                                     <td class="py-4 px-6">{{ $post->id }}</td>
                                     <td class="py-4 px-6">{{ $post->title }}</td>
                                     <td class="py-4 px-6">
-                                        <span style="display: inline-block; width: 180px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ $post->body }}</span>
+                                        <span class="block w-64 truncate">{{ $post->body }}</span>
                                     </td>
                                     <td class="py-4 px-6">
                                         @if ($post->image_url)
-                                            <img class="max-w-xs h-auto" src="/storage/{{ $post->image_url }}" alt="image description">
+                                            <img class="w-24 h-auto rounded-lg shadow-md" src="/storage/{{ $post->image_url }}" alt="image description">
                                         @else
-                                            No Image
+                                            Ninguna imagen
                                         @endif
                                     </td>
                                     <td class="py-4 px-6">{{ $post->created_at->format('d-m-Y') }}</td>
                                     <td class="py-4 px-6">
-                                        <a href="{{ route('posts.edit', $post->id) }}" class="text-blue-600 hover:text-blue-900">Editar</a>
-                                    </td>
-                                    <td class="py-4 px-6">
-                                        <form action="{{ route('posts.destroy', $post->id) }}" method="POST">
+                                        <a href="{{ route('posts.edit', $post->id) }}" class="text-blue-600 hover:text-blue-900 font-bold">Editar</a>
+                                        <form action="{{ route('posts.destroy', $post->id) }}" method="POST" class="inline-block">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="text-red-600 hover:text-red-900">Eliminar</button>
+                                            <button type="submit" class="text-red-600 hover:text-red-900 font-bold ml-4">Eliminar</button>
                                         </form>
-                                    </td>                                    
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>

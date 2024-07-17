@@ -11,7 +11,7 @@ class UserServiceTest extends TestCase
         $dbMock = $this->createMock(Database::class);
         $dbMock->method('find')
                ->willReturn([
-                   'id' => 1,
+                   'id' => 5,
                    'name' => 'Diego Chancusig Simbaña',
                    'email' => 'diegochancusisimbana@gmail.com'
                ]);
@@ -20,7 +20,7 @@ class UserServiceTest extends TestCase
         
         $user = $service->getUser(1);
         
-        $this->assertEquals(1, $user['id']);
+        $this->assertEquals(5, $user['id']);
         $this->assertEquals('Diego Chancusig Simbaña', $user['name']);
         $this->assertEquals('diegochancusisimbana@gmail.com', $user['email']);
     }

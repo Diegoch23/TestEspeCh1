@@ -15,7 +15,7 @@ class PostControllerTest extends TestCase
     {
         Mockery::close();
     }
-/*
+
     public function testStore()
     {
         // Fijar el almacenamiento en disco 'public'
@@ -23,8 +23,8 @@ class PostControllerTest extends TestCase
 
         // Datos de prueba para el post
         $data = [
-            'title' => 'Test Post',
-            'body' => 'This is the body of the test post.',
+            'title' => 'Test Post2',
+            'body' => 'This is the body of the test post2.',
             'image' => UploadedFile::fake()->image('test_image.jpg'),
         ];
 
@@ -45,6 +45,6 @@ class PostControllerTest extends TestCase
 
         // Verificar que el archivo fue almacenado
         Storage::disk('public')->assertExists('images/' . $data['image']->hashName());
-    }*/
+    }
     
 }

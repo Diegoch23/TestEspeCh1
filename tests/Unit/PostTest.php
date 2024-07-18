@@ -11,13 +11,13 @@ class PostTest extends TestCase
         $post = new Post([
             'title' => 'Diego Chancusig',
             'body' => 'Este es un blog de pruebas de Rendimiento y Usabilidad',
-            'image_url' => 'images//r0bpZvfpd4rxZDPymF5KUzERtBUqu36S5nn90GHu.gif',
+            'image_url' => 'BBWrILVadZWtVS5ofdhJXmkKnZNXvqXFQLh8Es63.gif',
             'active' => true,
         ]);
 
         $this->assertEquals('Diego Chancusig', $post->title);
         $this->assertEquals('Este es un blog de pruebas de Rendimiento y Usabilidad', $post->body);
-        $this->assertEquals('images//r0bpZvfpd4rxZDPymF5KUzERtBUqu36S5nn90GHu.gif', $post->image_url);
+        $this->assertEquals('BBWrILVadZWtVS5ofdhJXmkKnZNXvqXFQLh8Es63.gif', $post->image_url);
         $this->assertTrue($post->active);
     }
 }

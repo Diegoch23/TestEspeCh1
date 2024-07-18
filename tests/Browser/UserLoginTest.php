@@ -16,9 +16,9 @@ class UserLoginTest extends DuskTestCase
                     ->assertSee('Email') // Verificar que el texto 'Email' está presente en la página
                     ->screenshot('login-page-after-assert') // Tomar una captura de pantalla después de verificar
                     ->waitFor('#email', 10) // Esperar hasta 10 segundos para que el campo de email esté presente
-                    ->type('#email', 'testuser@example.com') // Usar el email del usuario creado
+                    ->type('#email', 'newuser@exampl6.com') // Usar el email del usuario creado
                     ->waitFor('#password', 10) // Esperar hasta 10 segundos para que el campo de contraseña esté presente
-                    ->type('#password', 'TestPassword123') // Usar la contraseña del usuario creado
+                    ->type('#password', 'Password126') // Usar la contraseña del usuario creado
                     ->press('LOG IN')
                     ->waitForText('Dashboard', 10) // Esperar hasta 10 segundos para ver el texto 'Dashboard'
                     ->assertSee('Dashboard') // Verificar que el texto 'Dashboard' está presente

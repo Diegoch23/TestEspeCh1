@@ -19,6 +19,12 @@ class PostController extends Controller
         return view('posts.index',compact('posts'));
     }
 
+        public function adminlteDashboard()
+    {
+        return view('adminlte');
+    }
+
+
     /**
      * Show the form for creating a new resource.
      */

@@ -14,10 +14,10 @@ class UserRegistrationTest extends DuskTestCase
             $browser->visit('/register')
                     ->pause(2000) // Pausar por 2 segundos para asegurar que la página se cargue completamente
                     ->screenshot('register-page-before') // Captura de pantalla antes de llenar el formulario
-                    ->type('name', 'Kenneth Acurio') // Llenar el campo de nombre
-                    ->type('email', 'kenneth@gmail.com') // Llenar el campo de email
-                    ->type('password', 'Kenneth1313') // Llenar el campo de contraseña
-                    ->type('password_confirmation', 'Kenneth1313') // Llenar el campo de confirmación de contraseña
+                    ->type('name', 'Usuario Prueba') // Llenar el campo de nombre
+                    ->type('email', 'usuariotest@gmail.com') // Llenar el campo de email
+                    ->type('password', 'usuariotest1313') // Llenar el campo de contraseña
+                    ->type('password_confirmation', 'usuariotest1313') // Llenar el campo de confirmación de contraseña
                     ->screenshot('register-page-filled') // Captura de pantalla después de llenar el formulario
                     ->press('REGISTRARSE') // Presionar el botón de registro
                     ->pause(2000) // Pausa para esperar la redirección
@@ -25,8 +25,8 @@ class UserRegistrationTest extends DuskTestCase
 
             // Verificar que el usuario fue registrado en la base de datos
             $this->assertDatabaseHas('users', [
-                'email' => 'kenneth@gmail.com',
-                'name' => 'Kenneth Acurio',
+                'email' => 'usuariotest@gmail.com',
+                'name' => 'Usuario Prueba',
             ]);
         });
     }

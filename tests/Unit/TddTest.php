@@ -13,22 +13,22 @@ class TddTest extends TestCase
     {
         parent::setUp();
 
-        // Aquí asumimos que ya existe un post en la base de datos y lo obtenemos.
-        $this->post = Post::first(); // Obtén el primer post de la base de datos
+        // ID del post que deseas actualizar
+        $postId = 4; // Cambia esto al ID del post que deseas actualizar
 
-        // Si no existe, puedes crear uno por si acaso
+        // Obtener el post específico por ID
+        $this->post = Post::find($postId);
+
+        // Si no existe un post con el ID especificado, la prueba fallará
         if (!$this->post) {
-            $this->post = Post::create([
-                'title' => 'Título del Post Existente',
-                'body' => 'Este es el cuerpo del post existente.',
-            ]);
+            $this->fail("No se encontró un post con el ID {$postId} en la base de datos para actualizar.");
         }
     }
 
     /** @test */
     public function un_post_puede_ser_actualizado()
     {
-        // Actualizar el post obtenido o creado
+        // Actualizar el post obtenido
         $this->post->update([
             'title' => 'Título del Post Actualizado',
             'body' => 'Este es el cuerpo actualizado del post.',

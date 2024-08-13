@@ -10,7 +10,7 @@ class UserServiceTest extends TestCase
     public function testPostCanBeUpdated()
     {
         // ID del post que deseas actualizar
-        $postId = 3; // Cambia esto al ID del post que deseas actualizar
+        $postId = 4; // Cambia esto al ID del post que deseas actualizar
 
         // Obtener el post específico por ID
         $post = Post::find($postId);
@@ -21,7 +21,7 @@ class UserServiceTest extends TestCase
         }
 
         // Asegurarse de que la imagen existe en el almacenamiento público
-        $imagePath = 'images/nFvYVopLVdcUe1jCbFzurhyNZDfI0PjPq5TzcIMo.jpg';
+        $imagePath = 'images/BBWrILVadZWtVS5ofdhJXmkKnZNXvqXFQLh8Es63.gif';
         $storagePath = public_path('storage/' . $imagePath);
 
         // Verifica si la imagen existe en el sistema de archivos

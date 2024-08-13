@@ -32,5 +32,12 @@ Route::view('profile', 'profile')
     ->name('profile');
 
 // Ruta para el controlador QueryBuilderController
-Route::get('query-builder/{post}', [QueryBuilderController::class, 'pruebas']);    
+Route::get('query-builder/{post}', [QueryBuilderController::class, 'pruebas']);  
+Route::get('query-builder/prueba-maliciosa', [QueryBuilderController::class, 'pruebaMaliciosa']);
+// Ruta insegura para probar inyecciones SQL
+Route::get('query-builder/inseguro/{post}', [QueryBuilderController::class, 'pruebasInseguras']);
+// Ruta segura para prevenir inyecciones SQL
+Route::get('query-builder/seguro/{postId}', [QueryBuilderController::class, 'pruebasSeguras']);
+
 require __DIR__ . '/auth.php';
+

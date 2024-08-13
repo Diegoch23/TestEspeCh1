@@ -9,7 +9,7 @@ new #[Layout('layouts.guest')] class extends Component
     public string $email = '';
 
     /**
-     * Send a password reset link to the provided email address.
+     * Enviar un enlace de restablecimiento de contraseña a la dirección de correo electrónico proporcionada.
      */
     public function sendPasswordResetLink(): void
     {
@@ -17,9 +17,9 @@ new #[Layout('layouts.guest')] class extends Component
             'email' => ['required', 'string', 'email'],
         ]);
 
-        // We will send the password reset link to this user. Once we have attempted
-        // to send the link, we will examine the response then see the message we
-        // need to show to the user. Finally, we'll send out a proper response.
+        // Enviaremos el enlace de restablecimiento de contraseña a este usuario. Una vez que hayamos intentado
+        // enviar el enlace, examinaremos la respuesta y veremos el mensaje que
+        // necesitamos mostrar al usuario. Finalmente, enviaremos una respuesta adecuada.
         $status = Password::sendResetLink(
             $this->only('email')
         );
@@ -38,23 +38,23 @@ new #[Layout('layouts.guest')] class extends Component
 
 <div>
     <div class="mb-4 text-sm text-gray-600 dark:text-gray-400">
-        {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
+        {{ __('¿Olvidaste tu contraseña? No hay problema. Solo déjanos saber tu dirección de correo electrónico y te enviaremos un enlace para restablecer tu contraseña que te permitirá elegir una nueva.') }}
     </div>
 
-    <!-- Session Status -->
+    <!-- Estado de la Sesión -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
     <form wire:submit="sendPasswordResetLink">
-        <!-- Email Address -->
+        <!-- Dirección de Correo -->
         <div>
-            <x-input-label for="email" :value="__('Email')" />
+            <x-input-label for="email" :value="__('Correo')" />
             <x-text-input wire:model="email" id="email" class="block mt-1 w-full" type="email" name="email" required autofocus />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
         <div class="flex items-center justify-end mt-4">
             <x-primary-button>
-                {{ __('Email Password Reset Link') }}
+                {{ __('Enviar enlace de restablecimiento de contraseña') }}
             </x-primary-button>
         </div>
     </form>

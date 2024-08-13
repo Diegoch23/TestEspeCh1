@@ -18,7 +18,7 @@ Route::view('dashboard', 'dashboard')
     ->name('dashboard');
 
 
-Route::get('/posts/benchmark', [PostController::class, 'benchmark'])->name('posts.benchmark');   
+Route::get('/benchmark', [PostController::class, 'benchmark'])->name('posts.benchmark');
 Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
 Route::get('/posts/{id}', [PostController::class, 'view'])->name('posts.view');
 Route::post('/posts', [PostController::class, 'store'])->name('posts.store');

@@ -48,7 +48,7 @@ new class extends Component
                     <x-nav-link :href="route('posts.benchmark')" :active="request()->routeIs('posts.benchmark')" wire:navigate>
                         Benchmark
                     </x-nav-link>
-                </div>
+                </div>                
             </div>
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ms-6">
@@ -67,16 +67,17 @@ new class extends Component
 
                     <x-slot name="content">
                         <x-dropdown-link :href="route('profile')" wire:navigate>
-                            {{ __('Profile') }}
+                            {{ __('Perfil') }} <!-- Traducción de "Profile" -->
                         </x-dropdown-link>
-
+                    
                         <!-- Authentication -->
                         <button wire:click="logout" class="w-full text-start">
                             <x-dropdown-link>
-                                {{ __('Log Out') }}
+                                {{ __('Cerrar sesión') }} <!-- Traducción de "Log Out" -->
                             </x-dropdown-link>
                         </button>
                     </x-slot>
+                    
                 </x-dropdown>
             </div>
 

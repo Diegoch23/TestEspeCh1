@@ -1,23 +1,36 @@
 <?php 
+
 namespace Tests\Unit;
 
-use PHPUnit\Framework\TestCase;
+use Tests\TestCase;
 use App\Models\Post;
+use Illuminate\Support\Facades\Storage;
 
 class PostTest extends TestCase
 {
-    public function testPostModel()
+    public function testPostExistsInDatabaseWithRealImage()
     {
-        $post = new Post([
+        // Asegurarse de que la imagen existe en el almacenamiento público
+        $imagePath = 'images/BBWrILVadZWtVS5ofdhJXmkKnZNXvqXFQLh8Es63.gif';
+        Storage::disk('public')->assertExists($imagePath);
+
+        // Crea un post y guarda en la base de datos con la imagen real
+        $post = Post::create([
             'title' => 'Diego Chancusig',
             'body' => 'Este es un blog de pruebas de Rendimiento y Usabilidad',
-            'image_url' => 'BBWrILVadZWtVS5ofdhJXmkKnZNXvqXFQLh8Es63.gif',
+            'image_url' => $imagePath, // Usar la URL de la imagen existente
             'active' => true,
         ]);
 
-        $this->assertEquals('Diego Chancusig', $post->title);
-        $this->assertEquals('Este es un blog de pruebas de Rendimiento y Usabilidad', $post->body);
-        $this->assertEquals('BBWrILVadZWtVS5ofdhJXmkKnZNXvqXFQLh8Es63.gif', $post->image_url);
-        $this->assertTrue($post->active);
+        // Verifica que el post existe en la base de datos
+        $this->assertDatabaseHas('posts', [
+            'title' => 'Diego Chancusig',
+            'body' => 'Este es un blog de pruebas de Rendimiento y Usabilidad',
+            'image_url' => $post->image_url, // Verificar la URL de la imagen
+            'active' => true,
+        ]);
+
+        // Verificar que el archivo de imagen realmente existe en el almacenamiento
+        Storage::disk('public')->assertExists($post->image_url);
     }
 }
